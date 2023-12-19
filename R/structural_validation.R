@@ -5,7 +5,6 @@ check_structure <- function(csv_path) {
   system(glue::glue("goodtables /workdir/tests/data/datapackage.json > {errors_path}"))
   testtools::delete_output_file(temporal_csv)
   error_count_string <- system(glue::glue("cat {errors_path} | grep error-count"), intern = TRUE)
-  print(error_count_string)
   is_valid <- all(stringr::str_detect(error_count_string, "'error-count': 0"))
   if (is_valid) {
     testtools::delete_output_file(errors_path)

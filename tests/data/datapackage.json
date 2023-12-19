@@ -4,7 +4,7 @@
     "profile": "tabular-data-package",
     "resources": [
         {
-            "path": "Base_datos_aves.csv",
+            "path": "csv_to_validate.csv",
             "profile": "tabular-data-resource",
             "name": "Base_datos_aves",
             "format": "csv",

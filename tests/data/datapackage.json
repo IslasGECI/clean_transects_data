@@ -1,0 +1,100 @@
+{
+    "name": "birds_raw_transects",
+    "schema": "tabular-data-package",
+    "profile": "tabular-data-package",
+    "resources": [
+        {
+            "path": "Base_datos_aves.csv",
+            "profile": "tabular-data-resource",
+            "name": "Base_datos_aves",
+            "format": "csv",
+            "mediatype": "text/csv",
+            "encoding": "utf-8",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "Fecha",
+                        "type": "date",
+                        "format": "%d/%m/%Y"
+                    },
+                    {
+                        "name": "Sitio",
+                        "type": "string",
+                        "format": "default",
+                        "constraints":{
+                            "enum": [
+                                "Arroyo al Zacatal",
+                                "Chapingo",
+                                "Laguna del Toro",
+                                "Laguna Salada"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "# transecto",
+                        "type": "string",
+                        "format": "default",
+                        "constraints": {
+                            "enum": [
+                                "MMAA",
+                                "MMAB",
+                                "MMAC",
+                                "MMAD"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "Tipo de vegetación o cobertura",
+                        "type": "string",
+                        "format": "default"
+                    },
+                    {
+                        "name": "# punto",
+                        "type": "integer",
+                        "format": "default",
+                        "constraints": {
+                            "minimum": 1,
+                            "maximum": 10
+                        }
+                    },
+                    {
+                        "name": "Hora Inicio",
+                        "type": "datetime",
+                        "format": "%H:%M"
+                    },
+                    {
+                        "name": "Hora Fin",
+                        "type": "datetime",
+                        "format": "%H:%M"
+                    },
+                    {
+                        "name": "Especie",
+                        "type": "string",
+                        "format": "default"
+                    },
+                    {
+                        "name": "Distancia",
+                        "type": "string",
+                        "format": "default",
+                        "constraints": {
+                            "pattern": "(^$)|(>25)"
+                        }
+                    },
+                    {
+                        "name": "# individuos",
+                        "type": "integer",
+                        "format": "default"
+                    },
+                    {
+                        "name": "Observaciones",
+                        "type": "string",
+                        "format": "default"
+                    }
+                ],
+                "missingValues": [
+                    "NA"
+                ]
+            }
+        }
+    ]
+}

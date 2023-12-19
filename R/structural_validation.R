@@ -1,3 +1,13 @@
-check_structure <- function(datapackage_path = "/workdir/tests/data/datapackage.json") {
-  system(glue::glue("goodtables {datapackage_path} > /workdir/structural_errors.txt"))
+check_structure <- function(csv_path) {
+  temporal_csv <- "/workdir/tests/data/csv_to_validate.csv"
+  system(glue::glue("cp {csv_path} {temporal_csv}"))
+  errors_path <- "/workdir/structural_errors.txt"
+  system(glue::glue("goodtables /workdir/tests/data/datapackage.json > {errors_path}"))
+  testtools::delete_output_file(temporal_csv)
+  error_count_string <- system(glue::glue("cat {errors_path} | grep error-count"), intern = TRUE)
+  print(error_count_string)
+  is_valid <- all(stringr::str_detect(error_count_string, "'error-count': 0"))
+  if (is_valid) {
+    testtools::delete_output_file(errors_path)
+  }
 }

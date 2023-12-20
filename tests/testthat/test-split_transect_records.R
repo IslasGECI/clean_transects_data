@@ -8,5 +8,15 @@ describe("Split transcet csv to higher normal forms", {
     obtained_number_cols <- ncol(obtained)
     expected_number_cols <- 5
     expect_equal(obtained_number_cols, expected_number_cols)
+    obtained_number_sites <- obtained$Sitio |>
+      unique() |>
+      length()
+    expected_number_sites <- 6
+    expect_equal(obtained_number_sites, expected_number_sites)
+    obtained_number_claves <- obtained$`Clave Unidad de Muestreo` |>
+      unique() |>
+      length()
+    expected_number_claves <- 7
+    expect_equal(obtained_number_claves, expected_number_claves)
   })
 })

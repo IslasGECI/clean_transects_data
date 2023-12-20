@@ -5,5 +5,8 @@ describe("Split transcet csv to higher normal forms", {
     obtained_number_cols <- ncol(obtained)
     expected_number_cols <- 4
     expect_equal(obtained_number_cols, expected_number_cols)
+    obtained_rows <- nrow(obtained)
+    expected_rows <- 60
+    expect_equal(obtained_rows, expected_rows)
   })
 })

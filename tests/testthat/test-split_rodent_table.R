@@ -9,4 +9,10 @@ describe("Split transcet csv to higher normal forms", {
     expected_rows <- 75
     expect_equal(obtained_rows, expected_rows)
   })
+  it("Extract rodent captures", {
+    obtained <- get_rodent_captures(complete_data)
+    obtained_number_cols <- ncol(obtained)
+    expected_number_cols <- 8
+    expect_equal(obtained_number_cols, expected_number_cols)
+  })
 })
